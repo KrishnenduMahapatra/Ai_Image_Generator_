@@ -73,22 +73,4 @@ const handleFormSubmission = (e) => {
 };
 
 generateForm.addEventListener("submit", handleFormSubmission);
-
-document.addEventListener("DOMContentLoaded", () => {
-  const visitorCountElement = document.getElementById("visitor-count");
-
-  // Get visitor count from localStorage
-  let visitorCount = localStorage.getItem("visitorCount");
-
-  if (visitorCount === null) {
-    visitorCount = 1; // First-time visitor
-  } else {
-    visitorCount = parseInt(visitorCount) + 1; // Increment visitor count
-  }
-
-  // Update localStorage with the new count
-  localStorage.setItem("visitorCount", visitorCount);
-
-  // Display the visitor count on the webpage
-  visitorCountElement.textContent = visitorCount;
-});
+ 

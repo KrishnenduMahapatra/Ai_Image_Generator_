@@ -8,7 +8,7 @@
 }
 
 .image-generator{
-  height:40vh ;
+  height:50vh ;
   display: flex;
   position: relative;
   align-items: center;
@@ -99,7 +99,7 @@ border-radius: 30px;
   flex-wrap: wrap;
   padding: 0 15px;
   max-width: 1250px;
-  margin: 50px auto;
+  margin: 25px auto;
   justify-content: center;
 }
 .image-gallery .img-card{
@@ -149,15 +149,6 @@ display: flex;
   width: 14px;
   height: 14px;
 }
-
-.visitor-counter {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #333;
-}
-
 
 
 @media screen and (max-width: 760px){
