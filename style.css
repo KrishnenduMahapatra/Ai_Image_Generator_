@@ -150,6 +150,15 @@ display: flex;
   height: 14px;
 }
 
+.visitor-counter {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+
 
 @media screen and (max-width: 760px){
   .image-generator h1{
