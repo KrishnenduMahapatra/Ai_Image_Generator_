@@ -20,35 +20,75 @@ const updateImageCard = (imgUrlArray) => {
   });
 };
 
+// const generateAiImages = async (userPrompt, userImgQuantity) => {
+//   //Fetch images from the AI image generator API
+//   try {
+//     const imagePromises = Array.from({ length: userImgQuantity }, async () => {
+//       const response = await fetch(
+//         "https://router.huggingface.co/hf-inference/models/ZB-Tech/Text-to-Image",
+//         {
+//           headers: {
+//             Authorization: `Bearer ${HUGGINGFACE_API_KEY}`,
+//           },
+//           method: "POST",
+//           body: JSON.stringify({ inputs: userPrompt }),
+//         }
+//       );
+
+//       if (!response.ok) throw new Error("Failed to fetch images! Please try again");
+
+//       const result = await response.blob();//Extracting the image data from the response
+//       return URL.createObjectURL(result);
+//     });
+
+//     const imageUrls = await Promise.all(imagePromises);
+//     updateImageCard(imageUrls);
+//   } catch (error) {
+//     alert(error.message);
+//   } finally {
+//     isImageGenerating = false;
+//   }
+// };
+
 const generateAiImages = async (userPrompt, userImgQuantity) => {
-  //Fetch images from the AI image generator API
   try {
     const imagePromises = Array.from({ length: userImgQuantity }, async () => {
       const response = await fetch(
-        "https://router.huggingface.co/hf-inference/models/ZB-Tech/Text-to-Image",
+        "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
         {
+          method: "POST",
           headers: {
             Authorization: `Bearer ${HUGGINGFACE_API_KEY}`,
+            "Content-Type": "application/json",
           },
-          method: "POST",
           body: JSON.stringify({ inputs: userPrompt }),
         }
       );
 
-      if (!response.ok) throw new Error("Failed to fetch images! Please try again");
+      if (response.status === 503) {
+        throw new Error("⏳ Model is loading. Please try again shortly.");
+      }
 
-      const result = await response.blob();//Extracting the image data from the response
-      return URL.createObjectURL(result);
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error("❌ API Error:", errorText);
+        throw new Error("Failed to generate image.");
+      }
+
+      const blob = await response.blob();
+      return URL.createObjectURL(blob);
     });
 
     const imageUrls = await Promise.all(imagePromises);
     updateImageCard(imageUrls);
   } catch (error) {
     alert(error.message);
+    console.error(error);
   } finally {
     isImageGenerating = false;
   }
 };
+
 
 const handleFormSubmission = (e) => {
   e.preventDefault();
