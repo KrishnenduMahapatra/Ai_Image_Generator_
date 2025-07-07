@@ -6,8 +6,19 @@ An interactive AI-powered image generator website built using **HTML**, **CSS**,
 
 ## 🌐 Demo
 
+<!--![Demo](assets/demo.gif)  
+</br>
 ![Demo](assets/aiimagegen.png)  
 [🔗 Live](https://ai-image-generator-km.netlify.app/)
+-->
+
+<p align="center">
+  <img src="assets/aiimagegen.png" alt="App Screenshot" width="480"/>
+  &nbsp;&nbsp;
+  <img src="assets/demo.gif" alt="Demo GIF" width="480"/>
+</p>
+<br/>
+<a href="https://ai-image-generator-km.netlify.app/">🔗 Live</a>
 
 
 ## 🚀 Features
@@ -63,12 +74,12 @@ git clone https://github.com/KrishnenduMahapatra/AI_Image_Generator_.git
 ```
 ai-image-generator-huggingface
 
-    1. Create a file called api.js in the root folder and add your Hugging Face API key:
+1. Create a file called api.js in the root folder and add your Hugging Face API key:
 
 ```javascript
 const api = "YOUR_HUGGINGFACE_API_KEY";
 ```
-    2. Open index.html in any browser.
+2. Open index.html in any browser.
 ## 🗺️ Roadmap
 
 - ✅ Prompt-based generation
