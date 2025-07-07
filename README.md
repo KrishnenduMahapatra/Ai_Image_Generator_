@@ -6,7 +6,7 @@ An interactive AI-powered image generator website built using **HTML**, **CSS**,
 
 ## 🌐 Demo
 
-![Demo](assets/aiimagegenerator.png)  
+![Demo](assets/aiimagegen.png)  
 [🔗 Live](https://ai-image-generator-km.netlify.app/)
 
 
