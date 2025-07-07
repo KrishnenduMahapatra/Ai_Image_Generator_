@@ -14,7 +14,7 @@ An interactive AI-powered image generator website built using **HTML**, **CSS**,
 
 <p align="center">
   <img src="assets/aiimagegen.png" alt="App Screenshot" width="480"/>
-  &nbsp;
+  
   <img src="assets/demo.gif" alt="Demo GIF" width="480"/>
 </p>
 <br/>
